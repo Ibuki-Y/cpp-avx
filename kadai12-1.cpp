@@ -47,16 +47,22 @@ int main(int argc, char *argv[]) {
 }
 
 /*
+MacBook Air(Mid 2013)
+プロセッサ 1.3GHz デュアルコアIntel Core i5
+メモリ 4GB 1600MHz DDR3
+*/
+
+/*
 <Normal>
 matrix size = 256 x 256
-[Normal] elapsed time = 0.08719 [sec]
+[Normal] elapsed time = 0.16217 [sec]
 
 matrix size = 512 x 512
-[Normal] elapsed time = 0.50684 [sec]
+[Normal] elapsed time = 2.34068 [sec]
 
 matrix size = 1024 x 1024
-[Normal] elapsed time = 4.59683 [sec]
+[Normal] elapsed time = 32.41904 [sec]
 
 matrix size = 2048 x 2048
-[Normal] elapsed time = 64.37561 [sec]
+[Normal] elapsed time = 245.65241 [sec]
 */

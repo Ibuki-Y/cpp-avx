@@ -26,7 +26,7 @@ void dgemm_avx_lu(int n, double *A, double *B, double *C) {
 int main(int argc, char *argv[]) {
   double *a, *b, *c;
   clock_t start, stop;
-  int i, j, k, nn, n = 256; // 256, 512, 1024, 2048
+  int i, j, k, nn, n = 2048; // 256, 512, 1024, 2048
 
   if (argc > 1)
     n = atoi(argv[1]);
@@ -58,4 +58,15 @@ int main(int argc, char *argv[]) {
 
 /*
 <AVX+LU>
+matrix size = 256 x 256
+[AVX+LU] elapsed time = 0.06663 [sec]
+
+matrix size = 512 x 512
+[AVX+LU] elapsed time = 0.69835 [sec]
+
+matrix size = 1024 x 1024
+[AVX+LU] elapsed time = 7.45124 [sec]
+
+matrix size = 2048 x 2048
+[AVX+LU] elapsed time = 71.16666 [sec]
 */

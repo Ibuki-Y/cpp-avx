@@ -1,3 +1,4 @@
+// #include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -26,7 +27,8 @@ void do_block(int n, int si, int sj, int sk, double *A, double *B, double *C) {
 
 void dgemm_avx_lu_cb(int n, double *A, double *B, double *C) {
   int sj;
-#pragma omp parallel for
+// #pragma omp parallel for
+#pragma omp parallel num_threads(16)
   for (sj = 0; sj < n; sj += BLOCKSIZE)
     for (int si = 0; si < n; si += BLOCKSIZE)
       for (int sk = 0; sk < n; sk += BLOCKSIZE)
@@ -36,7 +38,7 @@ void dgemm_avx_lu_cb(int n, double *A, double *B, double *C) {
 int main(int argc, char *argv[]) {
   double *a, *b, *c;
   clock_t start, stop;
-  int i, j, k, nn, n = 256; // 256, 512, 1024, 2048
+  int i, j, k, nn, n = 2048; // 256, 512, 1024, 2048
 
   if (argc > 1)
     n = atoi(argv[1]);
@@ -68,4 +70,31 @@ int main(int argc, char *argv[]) {
 
 /*
 <AVX+LU+CB+OMP>
+matrix size = 256 x 256
+[AVX+LU+CB+OMP] elapsed time = 0.05194 [sec]
+
+matrix size = 512 x 512
+[AVX+LU+CB+OMP] elapsed time = 0.42860 [sec]
+
+matrix size = 1024 x 1024
+[AVX+LU+CB+OMP] elapsed time = 3.91702 [sec]
+
+matrix size = 2048 x 2048
+[AVX+LU+CB+OMP] elapsed time = 25.62289 [sec]
+*/
+
+/*
+matrix size = 2048 x 2048
+
+num_threads(2)
+[AVX+LU+CB+OMP] elapsed time = 25.35021 [sec]
+
+num_threads(4)
+[AVX+LU+CB+OMP] elapsed time = 24.62289 [sec]
+
+num_threads(8)
+[AVX+LU+CB+OMP] elapsed time = 25.03764 [sec]
+
+num_threads(16)
+[AVX+LU+CB+OMP] elapsed time = 23.19939 [sec]
 */

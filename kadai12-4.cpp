@@ -58,14 +58,14 @@ int main(int argc, char *argv[]) {
 /*
 <AVX+LU+CB>
 matrix size = 256 x 256
-[AVX+LU+CB] elapsed time = 0.09405 [sec]
+[AVX+LU+CB] elapsed time = 0.11156 [sec]
 
 matrix size = 512 x 512
-[AVX+LU+CB] elapsed time = 0.48133 [sec]
+[AVX+LU+CB] elapsed time = 0.86375 [sec]
 
 matrix size = 1024 x 1024
-[AVX+LU+CB] elapsed time = 3.65536 [sec]
+[AVX+LU+CB] elapsed time = 6.93581 [sec]
 
 matrix size = 2048 x 2048
-[AVX+LU+CB] elapsed time = 29.28668 [sec]
+[AVX+LU+CB] elapsed time = 65.29176 [sec]
 */
